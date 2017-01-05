@@ -112,7 +112,6 @@ class VendingMachineTest < Minitest::Test
   end
 
   def test_can_move_indexes_by_one
-    skip
     vm = VendingMachine.new
     snack1 = Snack.new("White Castle Burger", 1)
     snack2 = Snack.new("Snickers", 4)

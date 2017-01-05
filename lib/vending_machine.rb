@@ -59,6 +59,13 @@ class VendingMachine
     end.join
   end
 
-  
+  def change_indexes
+    new_indexes = Array.new
+    @inventory.each_with_index do |snack, index|
+      new_indexes << index += 1
+    end
+    new_indexes
+  end
+
 
 end
