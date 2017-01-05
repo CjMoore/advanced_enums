@@ -33,4 +33,32 @@ class VendingMachine
     snacks_by_number
   end
 
+  def inventory_by_alphabet
+    inventory_by_alphabet = Hash.new
+
+    @inventory.each do |snack|
+      if inventory_by_alphabet.keys.include?(snack.name[0])
+        inventory_by_alphabet[snack.name[0]] << snack
+      else
+        inventory_by_alphabet[snack.name[0]] = Array.new
+        inventory_by_alphabet[snack.name[0]] << snack
+      end
+    end
+    inventory_by_alphabet
+  end
+
+  def total_num_items
+    @inventory.reduce(0) do |sum, snack|
+      sum + snack.quantity
+    end
+  end
+
+  def first_letters
+    @inventory.map do |snack|
+      snack.name[0]
+    end.join
+  end
+
+  
+
 end
